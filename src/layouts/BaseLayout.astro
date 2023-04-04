@@ -1,0 +1,26 @@
+---
+import Headeer from '../components/Headeer.astro';
+import Foooter from '../components/Foooter.astro';
+import '../styles/global.css';
+const pageTitle = "Home Page";
+// const tags = Astro.glob("../posts/*.md")
+// const allPosts = await Astro.glob('../posts/*.md');
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Headeer />
+    <h1>{pageTitle}</h1>
+    <slot />
+    <Foooter />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>

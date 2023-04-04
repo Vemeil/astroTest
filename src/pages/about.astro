@@ -1,4 +1,9 @@
 ---
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import Headeer from '../components/Headeer.astro';
+import Foooter from '../components/Foooter.astro';
 import '../styles/global.css';
 
 const pageTitle = "About me"
@@ -16,44 +21,20 @@ const skillColor = "navy";
 ---
 
 
-
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>My astro page</title>
-	</head>
-
-	<body>
-        <a href='/'>Home</a>
-        <a href='/about/'>About</a>
-        <a  href="/blog/">Blog</a>
-		<h1>{pageTitle}</h1>
-		<style define:vars={{skillColor}}>
-			h1 {
-			  color: purple;
-			  font-size: 4rem;
-			}
-			.skill {
-				color: var(--skillColor);
-				font-weight: bold;
-				}
-		  </style>
-		<p>Bonjour, je m'appelle Robin, et je suis datascientist qui aime toucher à tout. Ceci est mon blog</p>
-		<p>Here are a few facts about me:</p>
-		<ul>
-			<li>My name is {identity.firstName}.</li>
-			<li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-			{identity.hobbies.length >= 2 && 
-				<li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-			} 
-		</ul>
-		<p>My skills are:</p>
-		<ul>
-			{skills.map((skill) => <li class="skill	">{skill}</li>)}
-		</ul>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<h2>My awesome blog subtitle</h2>
+	<p>Bonjour, je m'appelle Robin, et je suis datascientist qui aime toucher à tout. Ceci est mon blog</p>
+	<p>Here are a few facts about me:</p>
+	<ul>
+		<li>My name is {identity.firstName}.</li>
+		<li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+		{identity.hobbies.length >= 2 && 
+			<li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+		} 
+	</ul>
+	<p>My skills are:</p>
+	<ul>
+		{skills.map((skill) => <li class="skill	">{skill}</li>)}
+	</ul>
+  </BaseLayout>
+  
